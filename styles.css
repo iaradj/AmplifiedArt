@@ -1,0 +1,686 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+body { 
+    background-color: #f0e9e9;
+}
+
+html {
+    scroll-behavior: smooth; /* Habilitar desplazamiento suave */
+}
+
+header {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: space-between; /* Espacio entre logo y menú */
+    background-color: rgb(6, 18, 31); /* Color del header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px; /* Ajusta la altura del header */
+    padding: 0 1rem; /* Espacio horizontal en el header */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+
+.logo {
+    margin-bottom: 1rem;
+    background-image: url('img/logo.png'); /* Ruta a tu imagen de logo */
+    background-size: contain; /* Ajusta la imagen para que se vea completa */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    width: 250px; /* Ajusta el ancho del logo */
+    height: 100px; /* Ajusta la altura del logo */
+    text-indent: -9999px; /* Oculta el texto, pero lo mantiene para SEO */
+    display: block; /* Asegura que se comporte como un bloque */
+}
+
+#burger {
+    margin-top: -10px;
+    list-style: none; /* Elimina las viñetas de la lista */
+    display: flex; /* Flex para alinear los elementos en fila */
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+}
+
+#burger li {
+    width: 2.5rem;
+    margin: .75rem;
+    text-indent: -4000px; /* Oculta el texto */
+    overflow: hidden;
+    background: url("../img/menu.png") center center no-repeat; /* Ruta a tu imagen de menú */
+    background-size: cover;
+}
+
+#burger li a {
+    display: block; /* Asegura que el enlace cubra todo el botón */
+    height: 100%; /* Ajusta la altura para que coincida con el botón */
+}
+
+#burger li:nth-child(1) {
+    background-image: url('img/menu.png'); /* Imagen para abrir */
+}
+
+
+#barra {
+    display: none; /* Esconde el menú por defecto */
+    position: absolute; /* Permite posicionar el menú en relación al botón hamburguesa */
+    top: 50px; /* Ajusta esta posición según sea necesario */
+    right: 0; /* Alinea el menú a la derecha */
+    background: rgb(77, 78, 78); /* Color de fondo del menú */
+    width: 150px; /* Ancho del menú desplegable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para mejor visibilidad */
+}
+
+nav:target #barra {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos del menú estén en columna */
+}
+ nav {  
+    position: relative;
+ }
+nav ul {
+    padding: 0; /* Elimina padding de la lista */
+}
+
+nav ul li {
+    list-style: none; /* Elimina las viñetas de la lista */
+    background-color: aliceblue; /* Color de fondo de los elementos del menú */
+    margin: 1rem 0; /* Espacio vertical entre los elementos */
+    width: 100%; /* Ancho completo del menú */
+}
+
+nav ul li a {
+    display: block; /* Hace que el enlace ocupe todo el espacio */
+    text-decoration: none; /* Elimina el subrayado */
+    padding: 1rem 0; /* Padding para el enlace */
+    text-align: center;
+}
+
+/* Cambios para el botón de cierre */
+#burger li:last-child {
+    display: none; /* Esconde el botón de cerrar por defecto */
+}
+
+nav:target #burger li {
+    background: url("img/menu_cierre.png") center center no-repeat; /* Imagen para cerrar */
+    background-size: cover;
+}
+
+nav:target #burger li:first-child {
+    display: none; /* Esconde el botón de abrir cuando el menú está abierto */
+}
+
+nav:target #burger li:last-child {
+    display: block; 
+}
+
+h1 
+{  display: flex;
+    justify-content: right;
+    align-items: start;
+    text-shadow: 3px 3px 8px rgba(187, 176, 176, 0.7);
+    color: rgb(233, 230, 217);
+    font-size: 3rem;
+    line-height: 1.2; 
+    margin: 0;
+    border-radius: 8px; 
+ }
+
+ #nosotros h2 {
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    color: #cfcfd3;
+    text-align: center;
+    margin: 0px 0; 
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(252, 253, 253, 0.2); 
+    padding-bottom: 10px; 
+    transition: color 0.3s ease;
+    padding-top: 10px;
+}
+p {
+    text-align: center;
+}
+#inicio { 
+    background-image: url(img/bannercompufinal.jpg);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 70vh; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    padding: 0 2rem; 
+    margin-bottom: 0%;
+
+}
+.parrafos-ocultos {
+    display: none; 
+}
+#mas:target { 
+    display: block; 
+}
+.contenedor-parrafos-ocultos {
+    margin-top: 1rem; 
+}
+
+.boton-toggle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem; 
+    transition: background-color 0.3s ease;
+}
+
+#proceso section, #proceso  {  
+    background-color: #f0f4f8;
+    padding: 20px; 
+    text-align: center;
+    color: rgb(9, 39, 71); 
+}
+#proceso h3 {
+    color: rgb(9, 39, 71); 
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+#proceso p {
+    font-size: 1.2rem; 
+    margin: 0 20px;
+    text-align: justify;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#proceso h2 {
+    color:  rgb(6, 18, 31);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    font-size: 2.8rem; 
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 1px; 
+    padding-bottom: 20px; 
+    border-bottom: 3px solid rgba(5, 20, 39, 0.596); 
+}
+.seccion-nota {
+    background: linear-gradient(to right, rgb(6, 18, 31), rgb(8, 18, 26)); 
+    background-color: rgba(221, 205, 205, 0.8);
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Monserrat', serif;
+    line-height: 1.7;
+    color: #dff6fde5; 
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    
+
+}
+/* Título */
+.seccion-nota h2, #proceso h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: rgb(6, 18, 31);
+    text-align: center;
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    text-align: center; 
+    margin: 20px 0; 
+    letter-spacing: 1px; 
+    border-bottom: 2px solid rgba(252, 253, 253, 0.2); 
+    padding-bottom: 10px;
+    transition: color 0.3s ease; 
+    margin-bottom: 20px;
+}
+
+.seccion-nota p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: justify;
+    margin: 30px;
+}
+
+.seccion-info {
+    background-color: #29273b;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 1.5rem; 
+}
+.pastilla-info {
+    position: relative;
+    width: 90%;
+    max-width: 400px; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    overflow: hidden;
+    margin-bottom: 1rem; 
+}
+
+.pastilla-info img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.pastilla-info h3 {
+    color:rgb(6, 18, 31) 
+}
+
+.texto-hover {
+    position: static; 
+    background-color: transparent; 
+    color: rgba(10, 32, 54, 0.925); 
+    padding: 0.5rem;
+    text-align: center;
+}
+.pastilla-info:hover .texto-hover {
+    opacity: 1; 
+}
+.texto-hover p {
+    margin: 0;
+    font-size: 1rem;
+    color: #29273b; 
+    padding: 10px;
+    text-align: center;
+}
+.galerias {
+    background: linear-gradient(to right, rgb(6, 18, 31), rgb(8, 18, 26)); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 50px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', serif;
+    line-height: 1.7;
+    color: #dff6fde5;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+#galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+#galeria a {
+    flex: 1 1 calc(50% - 20px);
+    text-align: center;
+}
+#galeria img {
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 400px; 
+    border-radius: 8px;
+    margin: 0 auto; 
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    border: 0;
+}
+.pastilla-info h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: rgb(6, 18, 31);
+    text-align: center;
+}
+footer {
+    background-color: rgb(13, 40, 64); 
+    color: rgb(242, 242, 242);
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  .seccion-info {
+    display: flex;
+    justify-content: space-between; 
+}
+.pastilla-info {
+    flex: 1 1 calc(45% - 20px); 
+    margin: 10px; 
+    position: relative;
+}
+.pastilla-info img {
+    max-width: 100%; 
+    height: auto; 
+    max-height: 320px;
+    object-fit: cover; 
+}
+.pastilla-info:hover .texto-hover {
+    display: block; 
+}
+#noticias {
+    width: 100%;
+    height: auto; /* Cambiado de 100% a auto para que ajuste según el contenido */
+    display: flex;
+    flex-direction: column; /* Columna para móviles */
+    align-items: center; /* Centrar los artículos */
+    padding: 20px; /* Espaciado interno */
+}
+#noticias article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px; /* Espacio entre artículos */
+    background: linear-gradient(to right, rgb(6, 18, 31), rgb(8, 18, 26)); 
+    color: white; /* Color del texto blanco para contraste */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: transform 0.3s ease; /* Transición suave para el efecto de hover */
+    text-align: center; /* Centrar el texto */
+    width: 90%; /* Cambiado a 90% para ocupar más espacio en móviles */
+    max-width: 400px; 
+    padding: 20px;
+}
+h2 {
+    text-align: center;
+    margin: 10px;
+    padding-top: 10px;
+    color: rgb(114, 143, 175);
+}
+#noticias img {
+    height: 300px;
+    object-fit: cover; 
+    align-items: center;
+}
+#noticias figure {
+    margin: 0; 
+}
+#noticias h2 {
+    margin: 10px 0; 
+    text-align: center;
+}
+#noticias h3 {
+    margin: 10px 0; 
+}
+#noticias p {
+    padding: 0 10px; 
+}
+footer {
+    background: linear-gradient(to right, rgb(19, 53, 88), rgb(8, 18, 26));
+    color: white;
+    padding: 20px;
+    text-align: center; 
+}
+
+footer ul {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+}
+
+footer ul li {
+    display: inline-block; 
+    margin: 0 15px;
+}
+
+footer ul li a {
+    color: white; 
+    text-decoration: none; 
+    padding-left: 25px; 
+    background-size: 20px; 
+    background-repeat: no-repeat; 
+    background-position: left center; 
+}
+footer ul li a img.social-icon {
+    width: 30px; 
+    height: 30px; 
+    margin-right: 8px; 
+}
+
+@media screen and (max-width: 991px) and (min-width: 750px) {
+   
+    #inicio {
+        margin: 0;
+        padding: 0;
+        background-image: url(img/bannertablet.jpeg);
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+    }
+    section {
+        padding: 2rem; 
+        margin: 1.5rem 0; 
+    }
+    nav ul {
+        flex-direction: row; 
+        justify-content: center; 
+    }
+
+    nav ul li {
+        width: auto; 
+        margin: 0 10px; /
+    }
+
+    nav ul li a {
+        padding: 12px; 
+        font-size: 1.1rem; 
+    }
+    h1 {
+        font-size: 2.5rem; 
+        }
+    #proceso h2 {
+            font-size: 2.5rem; 
+        }
+  #galeria a {
+            flex: 1 1 calc(33% - 20px); 
+        }
+    .pastilla-container {
+            display: flex; 
+            flex-wrap: wrap; 
+        } 
+        .texto-hover {
+            display: block; 
+            opacity: 1; 
+        }
+        .pastilla-info:hover .texto-hover {
+            display: block; 
+            opacity: 1; 
+        }
+}
+@media screen and (min-width: 992px) {
+
+    #inicio  { 
+         background-image: url(img/bannercompufinal.jpg);
+
+    }
+    .boton-toggle {
+        display: none; 
+    }
+    .parrafos-ocultos {
+        display: block; 
+    }
+    .pastilla-info {
+        position: relative; 
+    }
+
+    .pastilla-info:hover .texto-hover {
+        display: flex;
+    }
+    .pastilla-info:hover .texto-hover {
+        opacity: 1; 
+    }
+    .texto-info {
+        display: none; 
+    }
+    .seccion-info {
+        flex-direction: row; 
+    }
+    .seccion-nota {
+        padding: 30px 15px;
+    }
+
+    .seccion-nota h2 {
+        font-size: 28px;
+    }
+
+    .seccion-nota p {
+        font-size: 16px;
+    }
+
+    .boton-toggle {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+   
+    #burger {
+        display: none; 
+    }
+
+    .seccion-info {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
+
+    .pastilla-info {
+        flex-basis: calc(33% - 1rem); 
+    }
+    .texto-hover {
+        position: absolute; 
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        opacity: 0; 
+        transition: opacity 0.3s ease; 
+    }
+    .texto-hover p{
+        color: #cfcfd3;
+    }
+
+    
+    .pastilla-info:hover .texto-hover {
+        opacity: 1; 
+    }
+  
+    header
+    {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 1rem;
+    }
+    #noticias {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center; 
+    }
+
+    #noticias article {
+        flex-basis: calc(33% - 20px);
+        margin: 10px; 
+    }
+
+    #barra {  
+    display: flex;
+    margin-top: -80px;
+    justify-content: flex-end;
+    background-color: transparent;
+    box-shadow: none;
+    }
+
+    .logo {
+        width: 20%; 
+    }
+
+    nav ul {
+        background-color: transparent;
+        display: flex;
+        gap: 5rem;
+    }
+    
+    nav ul li{
+        width: 200px;
+        background-color: transparent;
+    }
+
+    nav ul li a {  
+        color: #ffffff;
+        padding: 0.5rem 1rem; 
+        border: 2px solid #181313; 
+        border-radius: 15px; 
+        text-decoration: none; 
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li a:hover{
+        background-color: rgb(116, 73, 218);
+    }
+    #galeria {
+        flex-wrap: nowrap; 
+        justify-content: space-between; 
+    }
+
+    #galeria a {
+        flex: 1 1 calc(20% - 20px); 
+    }
+    #noticias {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #noticias article {
+        flex-direction: column;
+        width: 30%; 
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    #noticias figure img {
+        width: 150px; 
+    }
+
+    #noticias h3 {
+        font-size: 18px;
+    }
+
+    #noticias p {
+        font-size: 16px;
+    }
+    .video-container {
+        max-width: 70%; 
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+
+  
+    section:hover {
+        background-color: rgba(255, 255, 255, 0.1); 
+    }
+    #noticias article:hover {
+        transform: scale(1.05); 
+    }
+    
+}
